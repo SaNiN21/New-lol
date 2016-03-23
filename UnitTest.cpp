@@ -1,34 +1,42 @@
 #include <stdlib.h>
-#include <iostream>
 #include <stdio.h>
 #include <math.h>
+#include <conio.h>
 #include <assert.h>
 
 using namespace std;
 
-void kvur () {
-    float a, b, c, D, x1, x2, x;
-    cout<< "Vvedite a, b, c" << endl;
-    cin >>a >> b >> c;
-    assert(a); //ѕроверка, что уравнение квадратное, т.е. a!=0
+void kvur (float a, float b, float c) {
+    float D,x,x1,x2;
     D=b*b-4*a*c;
-    cout << "Diskriminant: " << D << endl;
+    printf("Diskriminant: %f\n", D);
     if (D < 0)
-    cout << "Net resheniy" << endl;
+    {
+    printf("Net resheniy\n");
+    return;
+    }
     if (D == 0)
-    {cout << "Odno reshenie" << endl;
-    x=-b/(2*a);
-    cout << "x=" << x;}
+    {
+        printf("Odno reshenie\n");
+        x=-b/(2*a);
+        printf("x=%f", x);
+        
+    }
     if (D > 0)
-    {cout << "Dva resheniya" << endl;
+    {
+        printf("Dva resheniya\n");
     x1=(-b+sqrt(D))/(2*a); assert(x1);
     x2=(-b-sqrt(D))/(2*a); assert(x2);
-    cout << "x1=" << x1 << ", " << "x2=" << x2 << endl;}
+    printf("x1=%f, x2=%f", x1, x2); }
 }
 int main() {
     cout << "Reshenie kvadratnogo uravneniya" << endl;
-    kvur();
-    system("pause");
+    float a, b, c;
+    cout<< "Vvedite a, b, c" << endl;
+    scanf("%f %f %f", &a, &b, &c);
+    assert(a); //a!=0
+    kvur(a,b,c);
+    getch();
 }
 
 
